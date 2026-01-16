@@ -40,7 +40,7 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <select class="form-select check-city me-2" aria-label="Пример выбора по умолчанию">
+                                    <select class="form-select check-city me-2" aria-label="Пример выбора по умолчанию" name="city_id">
                                         <option selected>Выберите город</option>
                                         @foreach($cities as $city)
                                             <option value="{{$city->id}}">{{$city->name}}</option>
@@ -48,7 +48,7 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <select class="form-select check-city me-2" aria-label="Пример выбора по умолчанию">
+                                    <select class="form-select check-city me-2" aria-label="Пример выбора по умолчанию" name="user_id">
                                         <option selected>Выберите экскурсовода</option>
                                         @foreach($users as $user)
                                             <option value="{{$user->id}}">{{$city->last_name}}{{$user->first_name}}</option>
@@ -113,9 +113,25 @@
                                 <button type="submit" class="btn btn-primary main-button">Сохранить изменения</button>
                             </div>
                         </div>
-
                     </form>
                 </div>
+            </div>
+
+
+{{--            Список туров  --}}
+            <div class="tours-list mt-5">
+                @foreach($tours as $tour)
+                    <div class="card" style="width: 30rem;">
+                        <img src="{{$tour->img}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-title h4">{{$tour->title}}</p>
+                            <p class="card-text text-muted">{{$tour->description}}</p>
+                            <p class="card-text"><i class="bi bi-calendar"></i> {{$tour->startDate}}</p>
+                            <p class="card-text"><i class="bi bi-tag"></i> {{$tour->price}}</p>
+                            <p class="card-text">{{$tour->status}}</p>
+                        </div>
+                    </div>
+                @endforeach
             </div>
 
         </div>

@@ -16,7 +16,8 @@ class TourController extends Controller
     {
         $cities = City::all();
         $users = User::all();
-        return view('admin.tour', ['cities' => $cities, 'users' => $users]);
+        $tours = Tour::all();
+        return view('admin.tour', ['cities' => $cities, 'users' => $users, 'tours' => $tours]);
     }
 
     /**
@@ -32,12 +33,12 @@ class TourController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'price' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
+//        $request->validate([
+//            'name' => 'required',
+//            'description' => 'required',
+//            'price' => 'required',
+//            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+//        ]);
 
         $path = '';
 
@@ -46,6 +47,8 @@ class TourController extends Controller
         $tour->description = $request -> description;
         $tour-> startDate = $request -> startDate;
         $tour-> price = $request -> price;
+        $tour -> user_id = $request -> user_id;
+        $tour -> city_id = $request -> city_id;
 
         if ($request->file('img')) {
             $path = $request->file('img')->store('/public/img');
