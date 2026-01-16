@@ -1,0 +1,86 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bigelow+Rules&family=Comfortaa:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    font-family: Manrope !important;
+}
+
+.container {
+    width: 1200px !important;
+}
+
+.main-text {
+    color: #D91818 !important;
+}
+
+.container-section {
+    background-image:  linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.01)), url("https://static.mk.ru/upload/entities/2025/11/27/14/articles/facebookPicture/59/77/da/c7/26949b8df2495143e10ca47442487e3b.jpg");
+    width: 100%;
+    object-fit: contain;
+    background-repeat: no-repeat;
+    border-radius: 20px !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+    padding: 20px !important;
+}
+
+.navbar-main, #navbarText, .nav-link, .navbar-brand, nav, .dropdown-item{
+    color: #D91818 !important;
+}
+
+.main-section-span {
+    background-color: #D91818 !important;
+    padding: 5px 15px;
+    border-radius: 70px;
+}
+
+.container-search {
+    border-radius: 20px;
+    border: 1px solid #D91818;
+    padding: 20px;
+}
+
+input {
+    border: 1px solid #D93232 !important;
+    color: #252525 !important;
+}
+
+.input-reg {
+    border: 1px solid #D9D9D9 !important;
+    color: #252525 !important;
+    border-radius: 20px;
+}
+
+.check-city {
+    border: 1px solid #D93232;
+    color:#D93232 ;
+}
+
+.main-button {
+    background-color: #D91818 !important;
+    border: 0;
+    border-radius: 20px;
+}
+
+
+.form-check-input:checked {
+    background-color: #D91818 !important;
+    /*border-color: #0d6efd;*/
+}
+
+.bi-person-circle, .dropdown-toggle {
+    height: 300px !important;
+}
+
+.modal-main.modal-content {
+    border: none !important;
+    border-radius: 20px !important;
+}
+
+button {
+    border-radius: 20px !important;
+}
+
