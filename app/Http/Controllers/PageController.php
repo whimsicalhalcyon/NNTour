@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     public function welcome() {
-        return view('welcome');
+        $tours = \App\Models\Tour::all();
+        return view('welcome', ['tours' => $tours]);
     }
 
     public function registration() {

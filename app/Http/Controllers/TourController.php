@@ -81,7 +81,25 @@ class TourController extends Controller
      */
     public function update(Request $request, Tour $tour)
     {
-        //
+
+        $path = '';
+
+        $tour->title = $request -> title;
+        $tour->description = $request -> description;
+        $tour-> startDate = $request -> startDate;
+        $tour-> price = $request -> price;
+        $tour -> user_id = $request -> user_id;
+        $tour -> city_id = $request -> city_id;
+
+        if ($request->file('img')) {
+            $path = $request->file('img')->store('/public/img');
+        }
+
+        $tour -> img = '/storage/' . $path;
+        $tour -> update();
+
+        return redirect()->back();
+
     }
 
     /**
@@ -89,6 +107,7 @@ class TourController extends Controller
      */
     public function destroy(Tour $tour)
     {
-        //
+        $tour->delete();
+        return redirect()->back();
     }
 }

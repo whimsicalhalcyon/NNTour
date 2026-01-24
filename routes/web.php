@@ -11,6 +11,8 @@ Route::post('/auth', [\App\Http\Controllers\UserController::class, 'auth'])->nam
 Route::get('/logout', [\App\Http\Controllers\UserController::class, 'logout'])->name('logout');
 
 Route::get('/admin/tour', [\App\Http\Controllers\TourController::class, 'index'])->name('admin.tour');
-Route::post('/admin/tour', [\App\Http\Controllers\TourController::class, 'store'])->name('admin.tour.store');
+Route::post('/admin/tour/store', [\App\Http\Controllers\TourController::class, 'store'])->name('admin.tour.store');
+Route::delete('/admin/tour/delete/{tour}', [\App\Http\Controllers\TourController::class, 'destroy'])->name('admin.tour.destroy');
+Route::put('/admin/tour/update/{tour}', [\App\Http\Controllers\TourController::class, 'update'])->name('admin.tour.update');
 
 Route::post('/admin/city/store', [\App\Http\Controllers\CityController::class, 'store'])->name('admin.city.store');
