@@ -16,3 +16,6 @@ Route::delete('/admin/tour/delete/{tour}', [\App\Http\Controllers\TourController
 Route::put('/admin/tour/update/{tour}', [\App\Http\Controllers\TourController::class, 'update'])->name('admin.tour.update');
 
 Route::post('/admin/city/store', [\App\Http\Controllers\CityController::class, 'store'])->name('admin.city.store');
+
+Route::get('/profile', [\App\Http\Controllers\UserController::class, 'profile'])->name('profile');
+Route::put('/profile/update', [\App\Http\Controllers\UserController::class, 'update'])->name('profile.update');

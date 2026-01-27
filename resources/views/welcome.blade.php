@@ -40,13 +40,27 @@
                         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
                         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
                     </div>
-                    <div class="carousel-inner">
-                        @foreach($tours as $tour)
-                            <div class="carousel-item active" data-bs-interval="10000">
-                                <img src="{{$tour->img}}" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Метка первого слайда</h5>
-                                    <p>Некоторый репрезентативный заполнитель для первого слайда.</p>
+                    <div class="carousel-inner rounded-3 border">
+                        @foreach($tours as $key => $tour)
+                            <div class="carousel-item {{ $key==0 ? 'active' : '' }}">
+                                <div class="card border-0 rounded-0">
+                                    <div class="row g-0 align-items-center">
+                                        <div class="col-md-5">
+                                            <img src="{{ $tour->img }}"
+                                                 class="img-fluid w-100 h-100 object-fit-cover"
+                                                 style="max-height: 500px;"
+                                                 alt="{{ $tour->title }}">
+                                        </div>
+
+                                        <div class="col-md-7 bg-light">
+                                            <div class="card-body p-4">
+                                                <h4 class="fw-bold mb-3">{{ $tour->title }}</h4>
+                                                <p class="text-muted mb-2"><strong>Описание</strong> {{ $tour->description }}</p>
+                                                <p class="text-muted mb-2"><strong>Дата</strong> {{ $tour->startDate }}</p>
+                                                <p class="text-muted mb-4"><strong>Описание тура</strong> {{ $tour->description }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         @endforeach

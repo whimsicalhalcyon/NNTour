@@ -18,4 +18,5 @@ class PageController extends Controller
     public function authorization() {
         return view('authorization');
     }
+
 }

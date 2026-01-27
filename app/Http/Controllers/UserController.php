@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tour;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -58,5 +59,25 @@ class UserController extends Controller
     public function logout() {
         Auth::logout();
         return redirect()->route('authorization');
+    }
+
+    public function profile() {
+        $user = Auth::user();
+        $tours = Tour::all();
+        return view('profile', ['user' => $user, 'tours' => $tours]);
+    }
+
+    public function update(Request $request) {
+        $user = Auth::user();
+
+        $user->last_name = $request->last_name;
+        $user->first_name = $request->first_name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->birthday = $request->birthday;
+
+        $user->update();
+        return redirect()->back();
+
     }
 }

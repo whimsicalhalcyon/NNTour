@@ -122,7 +122,7 @@
             <div class="tours-list mt-5 row row-cols-1 row-cols-md-3 g-4">
                 @foreach($tours as $tour)
                     <div class="col">
-                        <div class="card tour-card" style="width: 100%" >
+                        <div class="card tour-card" style="width: 100%">
                             <div class="card-image-container">
                                 <img src="{{ $tour->img }}" class="card-img-top" alt="{{ $tour->title }}">
                                 @if($tour->status)

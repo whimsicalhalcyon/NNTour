@@ -59,6 +59,7 @@ input {
     color:#D93232 ;
 }
 
+
 .main-button {
     background-color: #D91818 !important;
     border: 0;
@@ -91,6 +92,7 @@ input {
 
 button {
     border-radius: 20px !important;
+    background-color: rgba(217, 217, 217, 0.45);
 }
 
 

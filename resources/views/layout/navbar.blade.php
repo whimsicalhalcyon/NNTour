@@ -35,7 +35,7 @@
                             <i class="bi bi-person-circle"></i>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Личный кабинет</a></li>
+                            <li><a class="dropdown-item" href="{{route('profile')}}">Личный кабинет</a></li>
                             <li><a class="dropdown-item" href="{{route('admin.tour')}}">Туры</a></li>
                             <li><a class="dropdown-item" href="#">Другое действие</a></li>
                             <li>
