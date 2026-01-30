@@ -63,17 +63,28 @@ class TourController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Tour $tour)
+    public function show(Request $request)
     {
-        //
+        $query = Tour::query();
+
+        if($request->filled('startDate')) {
+            $query->where('startDate', $request->startDate);
+        }
+
+        if($request->filled('city_id')) {
+            $query->where('city_id', $request->city_id);
+        }
+
+        $tours = $query->paginate()->appends($request->query());
+        return view('tours', ['tours' => $tours]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Tour $tour)
+    public function view(Tour $tour)
     {
-        //
+        return view('booking', ['tour' => $tour]);
     }
 
     /**

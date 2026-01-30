@@ -12,7 +12,7 @@
                     <a class="nav-link active" aria-current="page" href="#">Главная</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Рекомендуемые</a>
+                    <a class="nav-link" href="#">Акции</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Цена</a>
@@ -37,7 +37,7 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{route('profile')}}">Личный кабинет</a></li>
                             <li><a class="dropdown-item" href="{{route('admin.tour')}}">Туры</a></li>
-                            <li><a class="dropdown-item" href="#">Другое действие</a></li>
+                            <li><a class="dropdown-item" href="{{route('admin.sale')}}">Акции</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

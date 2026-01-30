@@ -18,16 +18,17 @@
         {{-- Поиск туров --}}
         <div class="container-search mt-5">
             <div class="container-fluid d-flex">
-                <select class="form-select check-city me-2" aria-label="Пример выбора по умолчанию">
-                    <option selected>Откройте это меню выбора</option>
-                    <option value="1">Один</option>
-                    <option value="2">Два</option>
-                    <option value="3">Три</option>
-                </select>
-                <input type="date" class="form-control me-2">
-                <input type="date" class="form-control me-2" >
-                <input type="text" class="form-control me-2" placeholder="Количество туристов">
-                <button class="btn btn-primary main-button">Применить</button>
+                <form action="{{route('tours')}}" method="get" class="d-flex">
+                    <select class="form-select check-city me-2" aria-label="Пример выбора по умолчанию" name="city_id">
+                        <option selected value="">Выберите город</option>
+                        @foreach($cities as $city)
+                            <option value="{{$city->id}}">{{$city->name}}</option>
+                        @endforeach
+                    </select>
+                    <input type="date" class="form-control me-2" name="startDate">
+                    <input type="text" class="form-control me-2" name="countTourist" placeholder="Количество туристов">
+                    <button class="btn btn-primary main-button">Применить</button>
+                </form>
             </div>
         </div>
 
@@ -46,9 +47,9 @@
                                 <div class="card border-0 rounded-0">
                                     <div class="row g-0 align-items-center">
                                         <div class="col-md-5">
-                                            <img src="{{ $tour->img }}"
+                                            <img src="{{$tour->img}}"
                                                  class="img-fluid w-100 h-100 object-fit-cover"
-                                                 style="max-height: 500px;"
+                                                 style="height: 500px;"
                                                  alt="{{ $tour->title }}">
                                         </div>
 
@@ -76,6 +77,41 @@
                 </div>
             </div>
         </div>
+
+        <div class="container-disadvantages mt-3">
+            <h2 class="text-center lh-lg second-title">Наши преимущества</h2>
+            <div class="div-dis d-flex justify-content-between">
+                <div class="container-dis text-center border p-3 second-border">
+                    <i class="bi bi-graph-up main-text h1"></i>
+                    <p class="text-center m-0 mt-2">Высокие стандарты сервиса</p>
+                </div>
+                <div class="container-dis text-center border p-3 second-border">
+                    <i class="bi bi-wallet2 main-text h1"></i>
+                    <p class="text-center m-0 mt-2">Лучшее соотношение цена/качество</p>
+                </div>
+                <div class="container-dis text-center border p-3 second-border">
+                    <i class="bi bi-people main-text h1"></i>
+                    <p class="text-center m-0 mt-2">Каждый клиент уникален</p>
+                </div>
+            </div>
+        </div>
     </div>
     @include('layout.footer')
+
+    <style>
+        .second-title {
+            color: #D91818 !important;
+        }
+
+        .main-border {
+            border: 1px solid #D91818 !important;
+            border-radius: 20px;
+        }
+
+        .second-border {
+            border: 1px solid #D9D9D9 !important;
+            border-radius: 20px;
+        }
+    </style>
 @endsection
+

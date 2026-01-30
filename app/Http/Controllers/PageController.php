@@ -8,7 +8,8 @@ class PageController extends Controller
 {
     public function welcome() {
         $tours = \App\Models\Tour::all();
-        return view('welcome', ['tours' => $tours]);
+        $cities = \App\Models\City::all();
+        return view('welcome', ['tours' => $tours, 'cities' => $cities]);
     }
 
     public function registration() {

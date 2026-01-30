@@ -12,7 +12,8 @@ class SaleController extends Controller
      */
     public function index()
     {
-        //
+        $sales = Sale::all();
+        return view('admin.sale', ['sales' => $sales]);
     }
 
     /**
@@ -28,7 +29,19 @@ class SaleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $path = '';
+
+        $sale = new Sale();
+        $sale->name = $request->name;
+        $sale->description = $request->description;
+        if ($request->file('img')) {
+            $path = $request->file('img')->store('/public/img');
+        }
+        $sale -> img = '/storage/' . $path;
+
+        $sale -> save();
+        return redirect()->back();
+
     }
 
     /**
@@ -52,7 +65,10 @@ class SaleController extends Controller
      */
     public function update(Request $request, Sale $sale)
     {
-        //
+        $sale->name = $request->name;
+        $sale->description = $request->description;
+        $sale->update();
+        return redirect()->back();
     }
 
     /**
@@ -60,6 +76,7 @@ class SaleController extends Controller
      */
     public function destroy(Sale $sale)
     {
-        //
+        $sale->delete();
+        return redirect()->back();
     }
 }
